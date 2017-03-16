@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <link rel="stylesheet" href="main.css">
     <title>Audio Visualizer</title>
     <style media="screen">
-
     </style>
 
     <!-- <script>
@@ -68,49 +69,111 @@
       }
 
     </script> -->
-  </head>
-  <body>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="header, col s12">
+                <h1>Web Audio API visualiser and Spotify
+             Playlist Generator!</h1>
+            </div>
+            <div id="mp3_player" class="col s12">
+                <h4>Visualizer! Upload an Mp3 File to begin.</h4>
+                <div id="audio_box"></div>
+                <canvas id="analyser_render" class="col s12"></canvas>
+            </div>
+
+            <div class="row">
+                <form class="upload, col s12" action="index.html" method="post" enctype="multipart/form-data">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span> Mp3 </span>
+                            <input type="file" multiple name="fileupload" value="fileupload" id="fileupload" accept="audio/*" onchange="(event)">
+
+                        </div>
+                        <p class="up_text">Upload An Mp3 File To Visualize!</p>
 
 
-    <div id="mp3_player">
-      <div id="audio_box"></div>
-      <canvas id="analyser_render"></canvas>
+
+                    </div>
+
+
+
+                </form>
+                <form action="#" class="themes, rows">
+                  <div class="col s3">
+                    <p>
+                        <input class="warm" name="group1" type="radio" id="test1" />
+                        <label for="test1">Warm</label>
+                        </p>
+                      </div>
+                      <div class="col s3">
+                    <p>
+                        <input name="group1" type="radio" id="test2" />
+                        <label for="test2">Cool</label>
+                    </p>
+                  </div>
+                  <div class="col s3">
+                    <p>
+                        <input name="group1" type="radio" id="test3" />
+                        <label for="test3">Green-Red</label>
+                    </p>
+                  </div>
+                  <div class ="col s3">
+                    <p>
+                        <input name="group1" type="radio" id="test4" />
+                        <label for="test4">Epilepsy Mode</label>
+                    </p>
+                  </div>
+                </form>
+                <!-- <form class="upload" action="index.html" method="post" enctype="multipart/form-data"> -->
+
+                <!-- <label class="col s2 pull-s10" for="fileupload">Upload a song to visualize</label>
+                    <input type="file" name="fileupload" value="fileupload" id="fileupload" accept="audio/*" onchange="(event)"> -->
+
+                <!-- </form> -->
+            </div>
+        </div>
+
+
+
+
+
+        <main class="main-container">
+            <section>
+                <div class="form">
+
+                    <form action="">
+                        <input class="col 5" type="search" value="">
+                        <input class="col 3" type="submit" value="Create">
+                    </form>
+                    <p>Make a Playlist</p>
+                </div>
+                <div class="playlist">
+                    <div class="loader">
+                        <div class="inner-circle"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+
     </div>
-
-  <form class="upload" action="index.html" method="post" enctype="multipart/form-data">
-
-    <label for="fileupload">Upload a song to visualize</label>
-    <input type="file" name="fileupload" value="fileupload" id="fileupload" accept="audio/*" onchange="(event)">
-
-  </form>
-    <main class="main-container">
-    		<section>
-    			<div class="form">
-
-    				<form action="">
-    					<input type="search" value="">
-    					<input type="submit" value="Create">
-    				</form>
-    			<p>Make a Playlist</p>
-    			</div>
-    			<div class="playlist">
-    				<div class="loader">
-    					<div class="inner-circle"></div>
-    				</div>
-    			</div>
-    		</section>
-    	</main>
 
 
     <!-- <iframe class="source" src="https://embed.spotify.com/?uri=spotify:album:5HCJzEGFCedz0DxsXhk1qG" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
-	<script src="app.js"></script>
-  <!-- <script src="spotify.js"></script> -->
+    <script src="app.js"></script>
+    <!-- <script src="spotify.js"></script> -->
 
 
 
-  </body>
+</body>
+
 </html>

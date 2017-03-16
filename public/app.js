@@ -1,6 +1,7 @@
 
-//Create a new audio object
+// Create a new audio object
 var audio = document.createElement('audio');
+$(audio).addClass('player')
 var songUpload = document.querySelector('#fileupload')
 $('#fileupload').change(function (){
   console.log("change happened");
@@ -8,10 +9,10 @@ $('#fileupload').change(function (){
   audio.src = songUpload.files[0].name
   console.log(songUpload.files[0])
   audio.controls = true;
-   document.body.appendChild(audio)
+  //  $('#mp3_player').append(audio)
   // document.audio.append(songUpload)
-  audio.style.width = window.innerWidth + 'px';
-  audio.loop = true;
+  // audio.style.width = window.innerWidth;
+  audio.loop = true
   audio.autoplay = true;
   loadSong(songUpload.files[0]);
 
@@ -19,6 +20,7 @@ $('#fileupload').change(function (){
 
 
 function loadSong(file) {
+  var that = this
   console.log("working");
 var songUpload = document.querySelector('#fileupload')
   var reader = new FileReader();
@@ -26,18 +28,26 @@ var songUpload = document.querySelector('#fileupload')
   reader.onload = function(event) {
 
     the_url = event.target.result
+    var audioContext = that.audioContext;
+    if(audioContext === null) {
+      console.log(that.audioContext)
+      return;
+    }
+
+    console.log(that.audioContext)
     //  console.log(the_url)
      var sourceHolder = $('#mp3_player').add('audio');
      console.log(sourceHolder)
      $('document').append(sourceHolder)
     $(sourceHolder).append("<source src='" + the_url + "'/>")
-    document.body.appendChild(audio)
+    // document.body.appendChild(audio)
    // document.audio.append(songUpload)
    audio.style.width = window.innerWidth + 'px';
    audio.loop = true;
    audio.autoplay = true;
   }
-  reader.readAsDataURL(file);
+  var fileRead = reader.readAsArrayBuffer(file);
+  console.log(fileRead)
 
   $('#fileupload').change(function(){
     // console.log(the_url)
@@ -46,7 +56,7 @@ var songUpload = document.querySelector('#fileupload')
     audio.src = songUpload.files[0].name
     console.log(songUpload.files[0])
     audio.controls = true;
-     document.body.appendChild(audio)
+    //  document.body.appendChild(audio)
     // document.audio.append(songUpload)
     audio.style.width = window.innerWidth + 'px';
     audio.loop = true;
@@ -63,7 +73,7 @@ window.addEventListener('load', initMp3Player, false);
 
 function initMp3Player() {
   //add audio element to audiobox
-  document.getElementById('audio_box').appendChild(audio);
+  document.getElementById('analyser_render').appendChild(audio);
   //assign context to new audio context object
   context = new AudioContext();
   //create analyser on context
@@ -101,11 +111,31 @@ function frameLooper() {
   // ctx.fillStyle = gradient;
   // ctx.fillRect(20,20,150,100)
 
-        var gradient = ctx.createLinearGradient(300,0,canvas.width,canvas.height);
-      gradient.addColorStop(1,'#000000');
-      gradient.addColorStop(0.75,'#ff0000');
-      gradient.addColorStop(0.25,'#ffff00');
-      gradient.addColorStop(0,'#ffffff');
+
+//Red and orange Theme
+      //   var gradient = ctx.createLinearGradient(300,0,canvas.width,canvas.height);
+      // gradient.addColorStop(1,'#000000');
+      // gradient.addColorStop(0.75,'#ff0000');
+      // gradient.addColorStop(0.25,'#ffff00');
+      // gradient.addColorStop(0,'#ffffff');
+
+      $(document).querySelector('.warm').onclick = function(){
+
+
+      var gradient = ctx.createLinearGradient(300,0,canvas.width,canvas.height);
+    gradient.addColorStop(1,'#48Ed07');
+    gradient.addColorStop(0.90,'#73EB07');
+    gradient.addColorStop(0.80,'#9DE908');
+    gradient.addColorStop(0.70,'#C6E609');
+    gradient.addColorStop(0.60,'#E5DB0A');
+    gradient.addColorStop(0.50,'#E3B10B');
+    gradient.addColorStop(0.40,'#E1870c');
+    gradient.addColorStop(0.30,'#DE5F0D');
+    gradient.addColorStop(0.20,'#DC380E');
+    gradient.addColorStop(0,'#DB110F');
+    ctx.fillStyle = gradient;
+    ctx.fill
+
 
       // add linear gradient
       // var grd = ctx.createLinearGradient(100, 300, canvas.width, canvas.height);
