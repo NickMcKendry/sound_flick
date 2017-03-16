@@ -93,6 +93,7 @@ function initMp3Player() {
   analyser.connect(context.destination);
   frameLooper();
 }
+
 //frameLooper animates any audio to the frequency 60hz
 function frameLooper() {
   //sets the animation to loop
@@ -111,30 +112,45 @@ function frameLooper() {
   // ctx.fillStyle = gradient;
   // ctx.fillRect(20,20,150,100)
 
+  var greenred = ctx.createLinearGradient(300,0,canvas.width,canvas.height);
+  var warm = ctx.createLinearGradient(300,0,canvas.width,canvas.height);
+  var cool = ctx.createLinearGradient(300,0,canvas.width,canvas.height);
+  var rainbow = ctx.createLinearGradient(300,0,canvas.width,canvas.height);
+
 
 //Red and orange Theme
-      //   var gradient = ctx.createLinearGradient(300,0,canvas.width,canvas.height);
-      // gradient.addColorStop(1,'#000000');
-      // gradient.addColorStop(0.75,'#ff0000');
-      // gradient.addColorStop(0.25,'#ffff00');
-      // gradient.addColorStop(0,'#ffffff');
 
-      $(document).querySelector('.warm').onclick = function(){
+      warm.addColorStop(1,'#000000');
+      warm.addColorStop(0.75,'#ff0000');
+      warm.addColorStop(0.25,'#ffff00');
+      warm.addColorStop(0,'#ffffff');
+      //warm end
 
+//GREENRED
+    greenred.addColorStop(1,'#48Ed07');
+    greenred.addColorStop(0.90,'#73EB07');
+    greenred.addColorStop(0.80,'#9DE908');
+    greenred.addColorStop(0.70,'#C6E609');
+    greenred.addColorStop(0.60,'#E5DB0A');
+    greenred.addColorStop(0.50,'#E3B10B');
+    greenred.addColorStop(0.40,'#E1870c');
+    greenred.addColorStop(0.30,'#DE5F0D');
+    greenred.addColorStop(0.20,'#DC380E');
+    greenred.addColorStop(0,'#DB110F');
+    //GREENRED ENF
 
-      var gradient = ctx.createLinearGradient(300,0,canvas.width,canvas.height);
-    gradient.addColorStop(1,'#48Ed07');
-    gradient.addColorStop(0.90,'#73EB07');
-    gradient.addColorStop(0.80,'#9DE908');
-    gradient.addColorStop(0.70,'#C6E609');
-    gradient.addColorStop(0.60,'#E5DB0A');
-    gradient.addColorStop(0.50,'#E3B10B');
-    gradient.addColorStop(0.40,'#E1870c');
-    gradient.addColorStop(0.30,'#DE5F0D');
-    gradient.addColorStop(0.20,'#DC380E');
-    gradient.addColorStop(0,'#DB110F');
-    ctx.fillStyle = gradient;
-    ctx.fill
+    //cool
+    cool.addColorStop(1,'#03A0A0');
+    cool.addColorStop(0.90,'#1C92A7');
+    cool.addColorStop(0.80,'#3584AF');
+    cool.addColorStop(0.70,'#4F77B7');
+    cool.addColorStop(0.60,'#6869BF');
+    cool.addColorStop(0.50,'#825CC6');
+    cool.addColorStop(0.40,'#9B4ECE');
+    cool.addColorStop(0.30,'#B541D6');
+    cool.addColorStop(0.20,'#CE33DE');
+    cool.addColorStop(0,'#E826E6');
+    //COOL END
 
 
       // add linear gradient
@@ -147,7 +163,9 @@ function frameLooper() {
       // grd.addColorStop(1, '#F9F7FA')
       // ctx.translate(canvas.width / 2, canvas.height / 2);
       // ctx.scale(-1, 1);
-      ctx.fillStyle = gradient;
+
+
+      ctx.fillStyle = warm;
       ctx.fill();
 // ctx.fillStyle = '#aa0000';
   //100 bars render
