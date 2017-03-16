@@ -11,7 +11,7 @@
     <!-- <script>
       //Create a new audio object
       var audio = new Audio();
-      audio.src = 'god.mp3'
+      audio.src = '06 Salute e Vita.mp3'
       audio.controls = true;
       audio.loop = true;
       audio.autoplay = false;
@@ -70,14 +70,47 @@
     </script> -->
   </head>
   <body>
+
+
     <div id="mp3_player">
       <div id="audio_box"></div>
       <canvas id="analyser_render"></canvas>
     </div>
-    <iframe class="source" src="https://embed.spotify.com/?uri=spotify:album:5HCJzEGFCedz0DxsXhk1qG" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
 
-    <script type="text/javascript" src="app.js">
+  <form class="upload" action="index.html" method="post" enctype="multipart/form-data">
 
-    </script>
+    <label for="fileupload">Upload a song to visualize</label>
+    <input type="file" name="fileupload" value="fileupload" id="fileupload" accept="audio/*" onchange="(event)">
+
+  </form>
+    <main class="main-container">
+    		<section>
+    			<div class="form">
+
+    				<form action="">
+    					<input type="search" value="">
+    					<input type="submit" value="Create">
+    				</form>
+    			<p>Make a Playlist</p>
+    			</div>
+    			<div class="playlist">
+    				<div class="loader">
+    					<div class="inner-circle"></div>
+    				</div>
+    			</div>
+    		</section>
+    	</main>
+
+
+    <!-- <iframe class="source" src="https://embed.spotify.com/?uri=spotify:album:5HCJzEGFCedz0DxsXhk1qG" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+
+	<script src="app.js"></script>
+  <!-- <script src="spotify.js"></script> -->
+
+
+
   </body>
 </html>
