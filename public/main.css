@@ -48,7 +48,7 @@ table {
 }
 
 body {
-  /*background-color: #679798;*/
+  background-color: rgb(80,80,80);
 }
 
 audio {
@@ -58,4 +58,12 @@ audio {
 .header {
   background-color: slateGrey;
   color: red;
+}
+
+p, h1, h2, h3, h4{
+  color: white;
+}
+
+.radio {
+  color: black;
 }
