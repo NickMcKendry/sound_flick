@@ -92,6 +92,7 @@ function initMp3Player() {
   //send sound to context destination (speakers)
   analyser.connect(context.destination);
   frameLooper();
+
 }
 
 //frameLooper animates any audio to the frequency 60hz
@@ -163,10 +164,51 @@ function frameLooper() {
       // grd.addColorStop(1, '#F9F7FA')
       // ctx.translate(canvas.width / 2, canvas.height / 2);
       // ctx.scale(-1, 1);
+      function filler(){
+      $('.warm').click(function(){
+        console.log("hey");
+        console.log($(".visual").val());
+        console.log($(this).val());
+        ctx.fillStyle = warm
+        console.log(ctx.fillStyle);
+      })
+
+    }
+    filler()
+
+    function filler1(){
+    $('.cool').click(function(){
+      console.log("hey");
+      console.log($(".visual").val());
+      console.log($(this).val());
+      ctx.fillStyle = cool
+      console.log(ctx.fillStyle);
+    })
+
+  }
+  filler1()
+
+  function filler2(){
+  $('.greenred').click(function(){
+    console.log("hey");
+    console.log($(".visual").val());
+    console.log($(this).val());
+    ctx.fillStyle = greenred
+    console.log(ctx.fillStyle);
+  })
+
+}
+filler2()
 
 
-      ctx.fillStyle = warm;
-      ctx.fill();
+
+
+
+
+
+
+
+      // ctx.fillStyle = warm;
 // ctx.fillStyle = '#aa0000';
   //100 bars render
   bars = 300;
