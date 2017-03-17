@@ -4,10 +4,10 @@ var audio = document.createElement('audio');
 $(audio).addClass('player')
 var songUpload = document.querySelector('#fileupload')
 $('#fileupload').change(function (){
-  console.log("change happened");
+  // console.log("change happened");
   var songUpload = document.querySelector('#fileupload')
   audio.src = songUpload.files[0].name
-  console.log(songUpload.files[0])
+  // console.log(songUpload.files[0])
   audio.controls = true;
   //  $('#mp3_player').append(audio)
   // document.audio.append(songUpload)
@@ -21,7 +21,7 @@ $('#fileupload').change(function (){
 
 function loadSong(file) {
   var that = this
-  console.log("working");
+  // console.log("working");
 var songUpload = document.querySelector('#fileupload')
   var reader = new FileReader();
 
@@ -30,14 +30,14 @@ var songUpload = document.querySelector('#fileupload')
     the_url = event.target.result
     var audioContext = that.audioContext;
     if(audioContext === null) {
-      console.log(that.audioContext)
+      // console.log(that.audioContext)
       return;
     }
 
-    console.log(that.audioContext)
+    // console.log(that.audioContext)
     //  console.log(the_url)
      var sourceHolder = $('#mp3_player').add('audio');
-     console.log(sourceHolder)
+    //  console.log(sourceHolder)
      $('document').append(sourceHolder)
     $(sourceHolder).append("<source src='" + the_url + "'/>")
     // document.body.appendChild(audio)
@@ -47,14 +47,14 @@ var songUpload = document.querySelector('#fileupload')
    audio.autoplay = true;
   }
   var fileRead = reader.readAsArrayBuffer(file);
-  console.log(fileRead)
+  // console.log(fileRead)
 
   $('#fileupload').change(function(){
     // console.log(the_url)
-    console.log("change happened");
+    // console.log("change happened");
     var songUpload = document.querySelector('#fileupload')
     audio.src = songUpload.files[0].name
-    console.log(songUpload.files[0])
+    // console.log(songUpload.files[0])
     audio.controls = true;
     //  document.body.appendChild(audio)
     // document.audio.append(songUpload)
@@ -166,11 +166,11 @@ function frameLooper() {
       // ctx.scale(-1, 1);
       function filler(){
       $('.warm').click(function(){
-        console.log("hey");
-        console.log($(".visual").val());
-        console.log($(this).val());
+        // console.log("hey");
+        // console.log($(".visual").val());
+        // console.log($(this).val());
         ctx.fillStyle = warm
-        console.log(ctx.fillStyle);
+        // console.log(ctx.fillStyle);
       })
 
     }
@@ -178,11 +178,11 @@ function frameLooper() {
 
     function filler1(){
     $('.cool').click(function(){
-      console.log("hey");
-      console.log($(".visual").val());
-      console.log($(this).val());
+      // console.log("hey");
+      // console.log($(".visual").val());
+      // console.log($(this).val());
       ctx.fillStyle = cool
-      console.log(ctx.fillStyle);
+      // console.log(ctx.fillStyle);
     })
 
   }
@@ -190,11 +190,11 @@ function frameLooper() {
 
   function filler2(){
   $('.greenred').click(function(){
-    console.log("hey");
-    console.log($(".visual").val());
-    console.log($(this).val());
+    // console.log("hey");
+    // console.log($(".visual").val());
+    // console.log($(this).val());
     ctx.fillStyle = greenred
-    console.log(ctx.fillStyle);
+    // console.log(ctx.fillStyle);
   })
 
 }
@@ -313,7 +313,7 @@ filler2()
 
            $('.playlist').html(`<iframe src="${baseUrl}" height="400"></iframe>`)
 
-           console.log(baseUrl)
+          //  console.log(baseUrl)
 
        });
    }
@@ -349,7 +349,7 @@ filler2()
    const getRandomTrack = (trackArray) => {
      const randoNum = Math.floor(Math.random() * trackArray.length)
      return trackArray[randoNum]
-     console.log(trackArray)
+    //  console.log(trackArray)
    }
 
    app.init =  function() {
