@@ -48,22 +48,28 @@ table {
 }
 
 body {
-  background-color: rgb(80,80,80);
+  background: -webkit-linear-gradient(#1F1818, #756A6A);;
 }
 
 audio {
   width: 100%;
 }
 
-.header {
+/*.header {
   background-color: slateGrey;
   color: red;
-}
+}*/
 
-p, h1, h2, h3, h4{
+p, h2, h3, h4{
   color: white;
 }
 
 .radio {
   color: black;
+}
+
+h1 {
+  background: -webkit-linear-gradient(#ffff00, #006600);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

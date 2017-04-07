@@ -19,6 +19,7 @@ $('#fileupload').change(function (){
 })
 
 
+
 function loadSong(file) {
   var that = this
   // console.log("working");
@@ -101,6 +102,7 @@ function frameLooper() {
   window.requestAnimationFrame(frameLooper);
   //aqcuires array of Uint8 datatype that represents data of sound frequency
   fbc_array = new Uint8Array(analyser.frequencyBinCount);
+
   // console.log(fbc_array)
   //get byte frequency data of fbc array
   analyser.getByteFrequencyData(fbc_array);
@@ -116,19 +118,19 @@ function frameLooper() {
   var greenred = ctx.createLinearGradient(300,0,canvas.width,canvas.height);
   var warm = ctx.createLinearGradient(300,0,canvas.width,canvas.height);
   var cool = ctx.createLinearGradient(300,0,canvas.width,canvas.height);
-  var rainbow = ctx.createLinearGradient(300,0,canvas.width,canvas.height);
+  var rainbow = ctx.createLinearGradient(120,0,canvas.width,canvas.height);
 
 
 //Red and orange Theme
 
-      warm.addColorStop(1,'#000000');
+
       warm.addColorStop(0.75,'#ff0000');
       warm.addColorStop(0.25,'#ffff00');
       warm.addColorStop(0,'#ffffff');
       //warm end
 
 //GREENRED
-    greenred.addColorStop(1,'#48Ed07');
+
     greenred.addColorStop(0.90,'#73EB07');
     greenred.addColorStop(0.80,'#9DE908');
     greenred.addColorStop(0.70,'#C6E609');
@@ -141,7 +143,7 @@ function frameLooper() {
     //GREENRED ENF
 
     //cool
-    cool.addColorStop(1,'#03A0A0');
+
     cool.addColorStop(0.90,'#1C92A7');
     cool.addColorStop(0.80,'#3584AF');
     cool.addColorStop(0.70,'#4F77B7');
@@ -150,8 +152,19 @@ function frameLooper() {
     cool.addColorStop(0.40,'#9B4ECE');
     cool.addColorStop(0.30,'#B541D6');
     cool.addColorStop(0.20,'#CE33DE');
-    cool.addColorStop(0,'#E826E6');
+    cool.addColorStop(0,'#E826E6')
     //COOL END
+
+    rainbow.addColorStop(0.90,'#E50002')
+    rainbow.addColorStop(0.80,'#E56F00')
+    rainbow.addColorStop(0.70,'#E5E100')
+    rainbow.addColorStop(0.60,'#77E500')
+    rainbow.addColorStop(0.50,'#05E600')
+    rainbow.addColorStop(0.40,'#00E66E')
+    rainbow.addColorStop(0.30,'#01E6E0')
+    rainbow.addColorStop(0.20,'#017AE7')
+    rainbow.addColorStop(0.10,'#6D01E7')
+    rainbow.addColorStop(0,'#E001E8')
 
 
       // add linear gradient
@@ -200,6 +213,17 @@ function frameLooper() {
 }
 filler2()
 
+function filler3(){
+$('.rainbow').click(function(){
+  // console.log("hey");
+  // console.log($(".visual").val());
+  // console.log($(this).val());
+  ctx.fillStyle = rainbow
+  // console.log(ctx.fillStyle);
+})
+
+}
+filler3()
 
 
 
@@ -208,19 +232,14 @@ filler2()
 
 
 
-      // ctx.fillStyle = warm;
-// ctx.fillStyle = '#aa0000';
+
+
+
   //100 bars render
   bars = 300;
   //renders bars at different heights every loop
   for (var i = 0; i < bars; i++) {
-    //give each bar different x position at start
-    // var random = Math.random,
-    //   red = random() * 255 >> 0,
-    //    green = random() * 255 >> 0,
-    //    blue = random() * 255 >> 0
-    //
-    //    ctx.fillStyle = 'rgb(' + red + ',' + green + ',' + blue  + ')';
+
     bar_x = i * 2;
     //give bar width in px
     bar_width = 1;
@@ -230,18 +249,25 @@ filler2()
     // ctx.fillStyle = 'hsl(' + hue + ', 100%, 50%)';
     ctx.fillRect(bar_x, canvas.height, bar_width, bar_height);
 
-    // for (var i = 1; i < fbc_array.length; i += 10) {
-    //   var random = Math.random,
-    //   red = random() * 255 >> 0,
-    //   green = random() * 255 >> 0,
-    //   blue = random() * 255 >> 0
-    //
-    //   ctx.fillStyle = 'rgb(' + red + ',' + green + ',' + blue  + ')';
-    //   ctx.fillRect(i, canvas.height - fbc_array[i], 10, canvas.height);
-    //   ctx.strokeRect(i, canvas.height - fbc_array[i], 10, canvas.height);
+
      }
 
+      // for (var i = 1; i < fbc_array.length; i+= 10) {
+      //   var random = Math.random,
+      //   red = random() * 255 >> 0,
+      //   green = random() * 255 >> 0,
+      //   blue =  random() * 255 >> 0;
+      //
+      //   ctx. fillStyle = 'rgb(' + red + ',' + green + ',' + blue + ')';
+      //   ctx.fillRect(i, canvas.height - fbc_array[i], 10, canvas.height);
+      //   ctx.strokeRect(i, canvas.height - fbc_array[i], 10, canvas.height);
+      // }
+
+
+
    }
+
+  //  Everything workd for sure until here
 
 
 
@@ -305,13 +331,21 @@ filler2()
            .reduce(flatten, [])
            .map(item => item.id)
            const randomTracks = [];
-           for(let i = 0; i < 30; i++) {
+           for(let i = 0; i < 50; i++) {
              randomTracks.push(getRandomTrack(tracksResults));
            }
 
            const baseUrl = `https://embed.spotify.com/?theme=white&uri=spotify:trackset:Your Random Playlist:${randomTracks.join()}`;
 
            $('.playlist').html(`<iframe src="${baseUrl}" height="400"></iframe>`)
+
+           analyser = context.createAnalyser();
+           analyser.smoothingTimeConstant = 0.9;
+           analyser.fftSize = 1024;
+           source.connect(analyser)
+           analyser.connect(context.destination);
+
+
 
           //  console.log(baseUrl)
 

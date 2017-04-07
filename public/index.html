@@ -73,17 +73,16 @@
 
 <body>
 
-    <div class="container">
+    <div class="container" draggable="true">
 
         <div class="row">
-            <div class="header, col s12">
-                <h1>Web Audio API visualiser and Spotify
-             Playlist Generator!</h1>
+            <div class="headerGrd, col s12">
+                <h1>Hello Skinner Middle School! 🤙</h1>
             </div>
             <div id="mp3_player" class="col s12">
-                <h4>Visualizer! Upload an Mp3 File to begin.</h4>
+
                 <div id="audio_box"></div>
-                <canvas id="analyser_render" class="col s12"></canvas>
+                <canvas id="analyser_render" class="col s12" draggable="true"></canvas>
             </div>
 
             <div class="row">
@@ -104,7 +103,7 @@
 
                 </form>
                 <form action="#" class="themes, rows">
-                  <div class="col s4">
+                  <div class="col s3">
                     <p>
                         <input class="warm visual" value = "warm" name="group1" type="radio" id="test1" checked="checked"/>
                         <label for="test1">Warm</label>
@@ -112,7 +111,7 @@
                       </div>
                       </form>
                       <form>
-                      <div class="col s4">
+                      <div class="col s3">
 
                     <p>
                         <input class="cool visual" name="group1" type="radio" id="test2" />
@@ -120,7 +119,16 @@
                     </p>
                   </div>
                 </form>
-                  <div class="col s4">
+                <form>
+                <div class="col s3">
+
+              <p>
+                  <input class="rainbow visual" name="group1" type="radio" id="test4" />
+                  <label for="test4">RAINBOW</label>
+              </p>
+            </div>
+          </form>
+                  <div class="col s3">
                     <p>
                         <input class="greenred visual" name="group1" type="radio" id="test3" />
                         <label for="test3">Green-Red</label>
@@ -175,6 +183,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
 
     <script src="app.js"></script>
     <!-- <script src="spotify.js"></script> -->
