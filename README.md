@@ -8,16 +8,16 @@
 
 # Prerequisites
 
-*Google Chrome
-*Local Mp3 File*
+* Google Chrome
+* Local Mp3 File
 
 # Built With
 
-*javascript
-*HTML5
-*css
-*WebAudioAPI
-*Spotify API*
+* javascript
+* HTML5
+* css
+* WebAudioAPI
+* Spotify API
 
 # Author
 
