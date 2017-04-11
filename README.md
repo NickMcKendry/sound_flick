@@ -11,7 +11,7 @@
 *Google Chrome
 *Local Mp3 File*
 
-##Built With
+#Built With
 
 *javascript
 *HTML5
@@ -19,7 +19,7 @@
 *WebAudioAPI
 *Spotify API*
 
-##Author
+#Author
 
 ###Nick McKendry
 ###Email: nickmckendry@gmail.com
