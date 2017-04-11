@@ -9,66 +9,7 @@
     <style media="screen">
     </style>
 
-    <!-- <script>
-      //Create a new audio object
-      var audio = new Audio();
-      audio.src = '06 Salute e Vita.mp3'
-      audio.controls = true;
-      audio.loop = true;
-      audio.autoplay = false;
-      //establish all variables that analyser will use
-      var canvas, ctx, source, context, analyser, fbc_array, bars, bar_x, bar_width, bar_height;
-      //initialize mp3 after page loads html
-      window.addEventListener('load', initMp3Player, false);
 
-      function initMp3Player() {
-        //add audio element to audiobox
-        document.getElementById('audio_box').appendChild(audio);
-        //assign context to new audio context object
-        context = new AudioContext();
-        //create analyser on context
-        analyser = context.createAnalyser();
-        //assign canvas to the analyser
-        canvas = document.getElementById('analyser_render');
-        //set canvas to 2d
-        ctx = canvas.getContext('2d');
-        //reroute audio playback into the graph
-        source = context.createMediaElementSource(audio);
-        //conect source to analyser
-        source.connect(analyser);
-        //send sound to context destination (speakers)
-        analyser.connect(context.destination);
-        frameLooper();
-      }
-      //frameLooper animates any audio to the frequency 60hz
-      function frameLooper() {
-        //sets the animation to loop
-        window.requestAnimationFrame(frameLooper);
-        //aqcuires array of Uint8 datatype that represents data of sound frequency
-        fbc_array = new Uint8Array(analyser.frequencyBinCount);
-        //get byte frequency data of fbc array
-        analyser.getByteFrequencyData(fbc_array);
-        //clear canvas every loop
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        //set color of bars
-        ctx.fillStyle = '#00CC11';
-        //100 bars render
-        bars = 100;
-        //renders bars at different heights every loop
-        for (var i = 0; i < bars; i++) {
-          //give each bar different x position at start
-          bar_x = i * 3;
-          //give bar width in px
-          bar_width = 2;
-          //make bars change height
-          bar_height = -(fbc_array[i] / 2);
-          //draws each bar
-          ctx.fillRect(bar_x, canvas.height, bar_width, bar_height);
-
-        }
-      }
-
-    </script> -->
 </head>
 
 <body>
@@ -77,7 +18,7 @@
 
         <div class="row">
             <div class="headerGrd, col s12">
-                <h1>Hello Skinner Middle School! 🤙</h1>
+                <h1>Audio Visualizer</h1>
             </div>
             <div id="mp3_player" class="col s12">
 
@@ -90,7 +31,10 @@
                     <div class="file-field input-field">
                         <div class="btn">
                             <span> Mp3 </span>
-                            <input type="file" multiple name="fileupload" value="fileupload" id="fileupload" accept="audio/*" onchange="(event)">
+                            <input type="file" multiple name="fileupload" value="fileupload" id="fileupload" accept="audio/*" onchange="openFile(event)">
+                            <audio id="output">
+
+                            </audio>
 
                         </div>
                         <p class="up_text">Upload An Mp3 File To Visualize!</p>
@@ -137,19 +81,9 @@
                   <form>
                     <button onclick="document.querySelector('.player').pause()" autofocus>Pause</button>
                     <button onclick="document.querySelector('.player').play()" autofocus>Play</button>
-                  <!-- <div class ="col s3">
-                    <p>
-                        <input class="rainbow visual" name="group1" type="radio" id="test4" />
-                        <label for="test4">Epilepsy Mode</label>
-                    </p>
-                  </div> -->
+
                 </form>
-                <!-- <form class="upload" action="index.html" method="post" enctype="multipart/form-data"> -->
 
-                <!-- <label class="col s2 pull-s10" for="fileupload">Upload a song to visualize</label>
-                    <input type="file" name="fileupload" value="fileupload" id="fileupload" accept="audio/*" onchange="(event)"> -->
-
-                <!-- </form> -->
             </div>
         </div>
 
@@ -179,14 +113,14 @@
     </div>
 
 
-    <!-- <iframe class="source" src="https://embed.spotify.com/?uri=spotify:album:5HCJzEGFCedz0DxsXhk1qG" width="300" height="380" frameborder="0" allowtransparency="true"></iframe> -->
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
 
     <script src="app.js"></script>
-    <!-- <script src="spotify.js"></script> -->
+    
 
 
 
