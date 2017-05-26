@@ -18,7 +18,7 @@
 
         <div class="row">
             <div class="headerGrd, col s12">
-                <h1>Audio Visualizer</h1>
+                <h1>Audio Visualizer 🎧</h1>
             </div>
             <div id="mp3_player" class="col s12">
 
@@ -111,6 +111,17 @@
 
 
     </div>
+    <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+<script>
+SC.initialize({
+  client_id: 'Oe3Z57AhFRuuUauAdhkO6pzE4lWe2Edd'
+});
+
+// stream track id 293
+SC.stream('/tracks/293').then(function(player){
+  player.play();
+});
+</script>
 
 
 
@@ -120,7 +131,7 @@
 
 
     <script src="app.js"></script>
-    
+
 
 
 

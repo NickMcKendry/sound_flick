@@ -1,0 +1,23 @@
+{
+  "name": "q1-spotify",
+  "version": "1.0.0",
+  "description": "> 🎧 An audio visualizer made using web-audio API and javascript. You can upload a local Mp3 file and the visualizer will analyze the frequencies and make the bars bounce accordingly. I included 3 themes; warm, cool, and red/green, able to be selected below the visualizer. At the bottom of the page is a from you can fill out with artist names in a comma separated list and hitting create will generate a Spotify playlist made at random using the artist names provided.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NickMcKendry/sound_flick.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NickMcKendry/sound_flick/issues"
+  },
+  "homepage": "https://github.com/NickMcKendry/sound_flick#readme",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  }
+}
